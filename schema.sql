@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS events;
+
+CREATE TABLE events (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT NOT NULL,
+	location TEXT NOT NULL,
+	contacts TEXT NOT NULL
+);
+
+

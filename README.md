@@ -5,8 +5,10 @@ A simple informative web app for a charity carnival.
 
 Some prerequsites to fulfil:
 - git
-- python 3
-- any browser
+- python 3 & pip
+    - flask
+    - sqlite3
+- any web browser
 
 Copy the following code into terminal and execute the code
 ```bash

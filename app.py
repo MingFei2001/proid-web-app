@@ -21,5 +21,16 @@ def index():
     conn.close()
     return render_template('index.html',events=events)
 
+@app.route('/booth/<int:id>', methods=['GET','POST'])
+def booth(id):
+    conn = get_db_connection()
+    booth = conn.execute('SELECT * FROM events WHERE id = ?', (id,)).fetchone()
+    conn.close()
+
+    if booth is None:
+        return "Booth not Found", 404
+
+    return render_template('booth.html', booth=booth)
+
 if __name__ == '__main__':
     app.run(debug=True)

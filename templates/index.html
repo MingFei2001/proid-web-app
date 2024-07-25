@@ -17,44 +17,49 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 	<nav class="nav justify-content-end bg-dark navbar-dark navbar-extend-lg">
-		<a href="" class="nav-link link-light">Home</a>
+		<a href="http://127.0.0.1:5000/" class="nav-link link-light">Home</a>
 		<a href="" class="nav-link link-light">About Us</a>
 	</nav>
 
 	<div class="container">
-		<h1 class="display-1 text-center">Carnival</h1>
+		{% for item in notis %}
+		<div class="card my-5">
+			<div class="card-header">
+				Notification
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">{{ item['noti'] }}</h5>
+			</div>
+		</div>
+		{% endfor %}
+
+		<h1 class="display-1 text-center">HeartFest</h1>
 		<img src="{{ url_for('static', filename='media/map.png') }}" class="d-block w-100" alt="">
 
+		{% for item in events %}
 		<div class="card my-5">
 			<div class="card-header">
-				Booth Information
+				Booth {{ item['id'] }}
 			</div>
 			<div class="card-body">
-				<h5 class="card-title">Booth A: booth_title</h5>
-				<p class="card-text">booth description as such</p>
-				<a href="#" class="btn btn-primary">Booth Link</a>
+				<h5 class="card-title">{{ item['name'] }}</h5>
+				<p class="card-text">{{ item['location'] }}</p>
+				<a href="http://127.0.0.1:5000/booth/{{ item['id'] }}" class="btn btn-primary">Learn
+					More</a>
 			</div>
 		</div>
-		<div class="card my-5">
-			<div class="card-header">
-				Booth Information
-			</div>
-			<div class="card-body">
-				<h5 class="card-title">Booth B: booth_title</h5>
-				<p class="card-text">booth description as such</p>
-				<a href="#" class="btn btn-primary">Booth Link</a>
-			</div>
-		</div>
-		<div class="card my-5">
-			<div class="card-header">
-				Booth Information
-			</div>
-			<div class="card-body">
-				<h5 class="card-title">Booth C: booth_title</h5>
-				<p class="card-text">booth description as such</p>
-				<a href="#" class="btn btn-primary">Booth Link</a>
-			</div>
-		</div>
+		{% endfor %}
+
+		<!-- <div class="card my-5"> -->
+		<!-- 	<div class="card-header"> -->
+		<!-- 		Booth Information -->
+		<!-- 	</div> -->
+		<!-- 	<div class="card-body"> -->
+		<!-- 		<h5 class="card-title">Booth A: booth_title</h5> -->
+		<!-- 		<p class="card-text">booth description as such</p> -->
+		<!-- 		<a href="#" class="btn btn-primary">Booth Link</a> -->
+		<!-- 	</div> -->
+		<!-- </div> -->
 	</div>
 
 </body>

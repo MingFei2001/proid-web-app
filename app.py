@@ -18,8 +18,9 @@ def get_db_connection():
 def index():
     conn = get_db_connection()
     events = conn.execute('SELECT * FROM events;')
-    conn.close()
-    return render_template('index.html',events=events)
+    notis = conn.execute('SELECT * FROM notis;')
+    # conn.close()
+    return render_template('index.html',events=events, notis=notis)
 
 @app.route('/booth/<int:id>', methods=['GET','POST'])
 def booth(id):
